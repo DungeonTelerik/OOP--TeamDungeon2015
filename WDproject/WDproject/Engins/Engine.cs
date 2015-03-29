@@ -26,11 +26,15 @@ namespace WDproject.Engins
             Console.WriteLine("Enter Company Name: ");
             Company company = new Company(Console.ReadLine());
 
+
+
             while (true)
             {
 
             }
 
         }
+
+        
     }
 }

@@ -7,9 +7,12 @@ namespace WDproject.Models
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Company
+    using WDproject.Interfaces;
+
+    public class Company : ICompany
     {
         private string name;
+        private List<IWorker> workers = new List<IWorker>();
 
         public Company(string name)
         {
@@ -31,6 +34,40 @@ namespace WDproject.Models
                     this.name = value;
                 }
             }
+        }
+
+        public double Capital
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public IList<IWorker> Personal
+        {
+            get
+            {
+                return this.workers;
+            }
+            set
+            {
+                ////////////////////////////////////////////
+            }
+        }
+
+        public void ConfirmRequest(IRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ImplementService(IService service)
+        {
+            throw new NotImplementedException();
         }
     }
 }

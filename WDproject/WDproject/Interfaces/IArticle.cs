@@ -7,7 +7,7 @@ using WDproject.Models;
 
 namespace WDproject.Interfaces
 {
-    interface IArticle        
+    public interface IArticle        
     {
         string Name { get; set; }
         int Area { get; set; }

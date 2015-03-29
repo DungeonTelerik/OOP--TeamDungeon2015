@@ -62,5 +62,10 @@ namespace WDproject.Models
                 throw new NotImplementedException();
             }
         }
+
+        //
+        //Methods
+        //
+        
     }
 }

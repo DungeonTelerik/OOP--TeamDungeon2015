@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WDproject.Interfaces
 {
-    interface IService:IRequest
+    public interface IService:IRequest
     {
         int SericeID { get; set; }//този номер е равен на съответния RequestID
         int BeginMoment { get; set; }

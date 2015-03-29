@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WDproject.Interfaces
 {
-    interface IRequest
+    public interface IRequest
     {
        //Задава им се стойност еднократно
         int RequestID { get; set; }

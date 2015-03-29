@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using WDproject.Models;
 namespace WDproject.Interfaces
 {
-    interface ICompany
+    public interface ICompany
     {
         double Capital { get; set; }
         IList<IWorker> Personal { get; set; }

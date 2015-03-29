@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WDproject.Interfaces
 {
-    interface IWorker
+    public interface IWorker
     {
         string Name { get; set; }
         double PayPerHour { get; set; }
