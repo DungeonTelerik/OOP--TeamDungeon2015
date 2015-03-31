@@ -10,6 +10,7 @@ namespace WDproject.Engins
 
     using WDproject.Models;
     using WDproject.Interfaces;
+using System.Threading;
 
     class Engine
     {
@@ -19,7 +20,8 @@ namespace WDproject.Engins
         //TODO make list with services
         //TODO Prossesing services
         //TODO Calculating results and establishing company status
-
+        const int Miliseconds=5000;
+       
         public static void Run()
         {
             //First of all give name to the company
@@ -27,12 +29,24 @@ namespace WDproject.Engins
             Company company = new Company(Console.ReadLine());
 
 
-
+            int t = 0;
             while (true)
             {
+                Pulse(t);
+                t++;
+        
 
             }
 
+        }
+
+        private static void Pulse(int t)
+        {
+            Thread.Sleep(Miliseconds);
+            Console.SetCursorPosition(0, 3);
+            Console.Write("Pulse:");
+            Console.Write(t.ToString("0000"));
+            
         }
 
         
