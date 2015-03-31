@@ -29,7 +29,7 @@ namespace WDproject.Models
             get { return this.numberOfWings; }
             set
             {
-                if (value < 0 && value > 2)
+                if (value > 0 && value < 2)
                 {
                     this.numberOfWings = value;
                 }
