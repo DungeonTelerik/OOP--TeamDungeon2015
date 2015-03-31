@@ -14,9 +14,8 @@ namespace WDproject.Models
     {
         //fields
         private const int doorWidth = 80;
-        private const int doorHeight = 200;
-        private int area;
-        private sbyte numberOfWings = 0;
+        private const int doorHeight = 200;        
+        private sbyte numberOfWings = 1;
 
         //constructor
         public Door(sbyte numberOfWings)
@@ -125,23 +124,7 @@ namespace WDproject.Models
             }
         }
 
-        int IArticle.Area
-        {
-            get
-            {
-                return this.area;
-            }
-            set
-            {
-                switch (numberOfWings)
-                {
-                    case 1: this.area = doorWidth * doorHeight; break;
-                    case 2: this.area = doorWidth * doorHeight * 2; break;
-                    default:
-                        break;
-                }
-            }
-        }
+       
 
         Cross IArticle.CrossType
         {
@@ -177,6 +160,10 @@ namespace WDproject.Models
             {
                 throw new NotImplementedException();
             }
+        }
+        public double GetArea()
+        {
+            return this.numberOfWings * doorWidth * doorHeight;
         }
     }
 }

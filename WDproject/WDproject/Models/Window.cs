@@ -13,12 +13,13 @@ namespace WDproject.Models
     {
         private int width;
         private int height;
-        private int area;
+        
 
         public Window(int width, int height)
         {
             this.Width = width;
             this.Height = height;
+            
         }
 
         public int Width
@@ -76,17 +77,7 @@ namespace WDproject.Models
             }
         }
 
-        public int Area
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+      
 
         public Cross CrossType
         {
@@ -122,6 +113,10 @@ namespace WDproject.Models
             {
                 throw new NotImplementedException();
             }
+        }
+        public double GetArea()
+        {
+            return this.width * this.height;
         }
     }
 }
