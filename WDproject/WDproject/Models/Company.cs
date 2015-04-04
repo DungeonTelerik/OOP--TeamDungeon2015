@@ -8,15 +8,18 @@ namespace WDproject.Models
     using System.Threading.Tasks;
 
     using WDproject.Interfaces;
+    using WDproject.Models;
 
     public class Company : ICompany
     {
         private string name;
+        private CompanyStatus status;
         private List<IWorker> workers = new List<IWorker>();
 
-        public Company(string name)
+        public Company(string name, CompanyStatus status = CompanyStatus.Working)
         {
             this.Name = name;
+            this.status = status;
         }
 
 
@@ -68,6 +71,18 @@ namespace WDproject.Models
         public void ImplementService(IService service)
         {
             throw new NotImplementedException();
+        }
+        public CompanyStatus Status
+        {
+            get
+            {
+                return this.status;
+            }
+
+             set
+            {
+                this.status = value;
+            }
         }
     }
 }

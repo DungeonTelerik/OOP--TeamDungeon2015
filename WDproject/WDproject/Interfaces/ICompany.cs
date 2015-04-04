@@ -12,6 +12,6 @@ namespace WDproject.Interfaces
         IList<IWorker> Personal { get; set; }
         void ConfirmRequest(IRequest request);
         void ImplementService(IService service);
-        //CompanyStatus Status { get; set; }
+        CompanyStatus Status { get;  set; }
     }
 }
