@@ -9,6 +9,6 @@ namespace WDproject.Interfaces
     public interface ICompany
     {
         double Capital { get; set; }   
-        CompanyStatus Status { get;  set; }
+        CompanyStatus Status { get; }
     }
 }
