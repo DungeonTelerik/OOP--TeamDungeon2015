@@ -8,10 +8,7 @@ namespace WDproject.Interfaces
 {
     public interface ICompany
     {
-        double Capital { get; set; }
-        IList<IWorker> Personal { get; set; }
-        void ConfirmRequest(IRequest request);
-        void ImplementService(IService service);
+        double Capital { get; set; }   
         CompanyStatus Status { get;  set; }
     }
 }

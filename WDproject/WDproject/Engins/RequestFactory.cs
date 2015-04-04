@@ -23,7 +23,8 @@ namespace WDproject.Engins
             Window window = NewRandomWindow();
             Console.WriteLine(window.GetPrice().ToString());
             WindowRequest wr=new WindowRequest(moment, window);
-           
+            Console.WriteLine("IS accepted "+wr.IsAccepted);
+            Console.WriteLine("RequestID: " + wr.RequestID); 
             return wr;
         }
 
