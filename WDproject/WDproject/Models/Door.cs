@@ -16,12 +16,16 @@ namespace WDproject.Models
         private const int doorWidth = 80;
         private const int doorHeight = 200;        
         private sbyte numberOfWings = 1;
-        protected const double InstalationPrice = 12.0;
-        protected const double ProductionPrice = 10.0;
+        protected const double InstalationPriceCost = 120.0;
+        protected const double ProductionPriceCost = 160.0;
+        protected double productionPrice;
+        protected double installationPrice;
         //constructor
         public Door(sbyte numberOfWings)
         {
             this.NumberOfWings = numberOfWings;
+            this.productionPrice = ProductionPriceCost * numberOfWings;
+            this.installationPrice = InstalationPriceCost;
         }
 
         public sbyte NumberOfWings
@@ -77,29 +81,29 @@ namespace WDproject.Models
             }
         }
 
-        public int ProductionDuration
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        //public int ProductionPrice
+        //{
+        //    get
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //    set
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //}
 
-        public int InstallDuration
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        //public int InstallationPrice
+        //{
+        //    get
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //    set
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //}
 
         string IDoor.LockingSystem
         {
@@ -139,27 +143,27 @@ namespace WDproject.Models
             }
         }
 
-        int IArticle.ProductionDuration
+        public double ProductionPrice
         {
             get
             {
-                throw new NotImplementedException();
+                return this.installationPrice;
             }
             set
             {
-                throw new NotImplementedException();
+                this.installationPrice = value; ;
             }
         }
 
-        int IArticle.InstallDuration
+        public double InstallationPrice
         {
             get
             {
-                throw new NotImplementedException();
+                return this.productionPrice;
             }
             set
             {
-                throw new NotImplementedException();
+                this.productionPrice = value;
             }
         }
         public double GetArea()
@@ -168,7 +172,7 @@ namespace WDproject.Models
         }
         public double GetPrice()
         {
-            return numberOfWings*(doorWidth*doorHeight)/1000+InstalationPrice+ProductionPrice;
+            return this.installationPrice+this.productionPrice;
         }
     }
 }

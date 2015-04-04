@@ -12,8 +12,8 @@ namespace WDproject.Interfaces
         string Name { get; set; }
         double  GetArea(); 
         Cross CrossType { get; set; }
-        int ProductionDuration { get; set; }
-        int InstallDuration { get; set; } 
+        double InstallationPrice { get; set; }
+        double ProductionPrice { get; set; }
         double GetPrice();
     }
 }

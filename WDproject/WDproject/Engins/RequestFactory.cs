@@ -21,7 +21,10 @@ namespace WDproject.Engins
         public WindowRequest CreateRandomWindowRequest(uint moment)
         {
             Window window = NewRandomWindow();
-            return new WindowRequest(moment, window);
+            Console.WriteLine(window.GetPrice().ToString());
+            WindowRequest wr=new WindowRequest(moment, window);
+           
+            return wr;
         }
 
         private Window NewRandomWindow()
@@ -33,6 +36,8 @@ namespace WDproject.Engins
             int windowHeight = r.Next(WindowMinSize + 1, WindowMaxSize - 1);
             return new Window(windowWidth, windowHeight);
         }
+
+       
 
 
     }

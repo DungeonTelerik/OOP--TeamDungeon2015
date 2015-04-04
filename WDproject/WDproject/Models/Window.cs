@@ -13,19 +13,24 @@ namespace WDproject.Models
     {
         protected const int WindowMinSize = 50;
         protected const int WindowMaxSize = 300;
-        protected const double InstalationPrice = 120.0;
-        protected const double ProductionPrice = 100.0;
+        protected const double InstalationPriceConst = 120.0;
+        protected const double ProductionPriceConst = 100.0;
         protected const int maxNumberOfWings=5;
 
         private int width;
         private int height;
         private int wingNumbers = 2;
+        private double installationPrice;
+        private double productionPrice;
 
 
         public Window(int width, int height)
         {
-            this.Width = width;
-            this.Height = height;
+            this.width = width;
+            this.height = height;
+            this.installationPrice = InstalationPriceConst;
+            this.productionPrice = width * height * wingNumbers / 100;
+            
 
         }
 
@@ -112,27 +117,27 @@ namespace WDproject.Models
             }
         }
 
-        public int ProductionDuration
+        public double ProductionPrice
         {
             get
             {
-                throw new NotImplementedException();
+                return this.installationPrice;
             }
             set
             {
-                throw new NotImplementedException();
+                this.installationPrice = value; ;
             }
         }
 
-        public int InstallDuration
+        public double InstallationPrice
         {
             get
             {
-                throw new NotImplementedException();
+                return this.productionPrice;
             }
             set
             {
-                throw new NotImplementedException();
+                this.productionPrice = value;
             }
         }
         public double GetArea()
@@ -155,7 +160,7 @@ namespace WDproject.Models
         }
         public double GetPrice()
         {
-            return InstalationPrice+ProductionPrice*this.wingNumbers+(this.width * this.height)/100;
+            return this.installationPrice+this.productionPrice;
         }
     }
 }
