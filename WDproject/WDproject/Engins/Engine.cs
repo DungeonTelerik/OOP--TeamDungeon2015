@@ -23,14 +23,14 @@
         public static void Run()
         {
             //First of all give name to the company
-            Console.SetCursorPosition(10, 0);
+            Console.SetCursorPosition(0, 0);
             Console.Write("Enter Company Name: ");
             Company company = new Company(Console.ReadLine());
             company.Capital = 10000.00;
             company.EmployeeCount = 3;
-
+            Console.WriteLine(string.Format("Capital: {0}, Employees:{1}, Profit rate:{2}", company.Capital, company.EmployeeCount, company.ProfitRate));
             RequestFactory requestedFactory = new RequestFactory();
-        //    ConsoleKeyInfo cki;
+            //    ConsoleKeyInfo cki;
             uint t = 0;
             while (true)
             {
@@ -38,9 +38,11 @@
                 t++;
                 WindowRequest wr = requestedFactory.CreateRandomWindowRequest(t);
                 Console.WriteLine(wr.ToString());
-             Service s =requestedFactory.CreateService(wr);
-             company.AddService(s);
-
+                Service s = requestedFactory.CreateService(wr);
+                company.AddService(s);
+                company.Moment = t;//set current moment /time/
+                company.ResultOfTheDay();
+                Console.WriteLine("Capital: "+company.Capital);
             }
 
         }

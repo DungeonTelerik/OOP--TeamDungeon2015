@@ -25,7 +25,7 @@ namespace WDproject.Models
             this.materialCost = materialCost;
             this.installationCost = installationCost;
             this.productionCost = productionCost;
-            this.reportedIncome = 0;// преди да изпълним поръчката, не ни плащат
+            this.reportedIncome = 0;// преди да изпълним поръчката, не ни плащат, ако е положително - платено ни е
             this.unfinished = quantity;//в началото всички неща са незавършени
 
         }
@@ -111,6 +111,11 @@ namespace WDproject.Models
             {
                 this.unfinished = value;
             }
+        }
+
+        public double GetExpenseValue()
+        {
+            return (this.InstallationCost + this.MaterialCost + this.ProductionCost) * this.Quantity;
         }
     }
 }

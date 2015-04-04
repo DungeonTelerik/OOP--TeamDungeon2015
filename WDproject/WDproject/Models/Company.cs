@@ -10,18 +10,54 @@ namespace WDproject.Models
     using WDproject.Interfaces;
     using WDproject.Models;
 
-    public class Company : ICompany
+    public class Company :  ICompany
     {
         private string name;
         private CompanyStatus status;
-        private List<IWorker> workers = new List<IWorker>();
+        private double capital;
+        protected List<IService> services;
+        private List<Operation> debit;
+        private List<Operation> credit;
+        private uint moment;
+        private int employeeCount;
+        public  double profitRate = 0.15; //норма на печалба
+        private const double Salary=75;//заплатата е константа, но може да бъде и друго
+       
 
         public Company(string name, CompanyStatus status = CompanyStatus.Working)
         {
             this.Name = name;
             this.status = status;
+            this.services = new List<IService>();
+            this.debit = new List<Operation>();
+            this.credit = new List<Operation>();
+            this.moment = 0;
+
+
+        }
+        public int EmployeeCount
+        {
+            get
+            {
+                return this.employeeCount;
+            }
+            set
+            {
+                this.employeeCount = value;
+            }
         }
 
+        public uint Moment
+        {
+            get
+            {
+                return this.moment;
+            }
+            set
+            {
+                this.moment = value;
+            }
+        }
 
         public string Name
         {
@@ -43,35 +79,33 @@ namespace WDproject.Models
         {
             get
             {
-                throw new NotImplementedException();
+                return this.capital;
             }
             set
             {
-                throw new NotImplementedException();
+                this.capital = value;
             }
         }
 
-        public IList<IWorker> Personal
+        public double ProfitRate
         {
             get
             {
-                return this.workers;
+                return this.profitRate;
             }
-            set
-            {
-                ////////////////////////////////////////////
-            }
-        }
 
-        public void ConfirmRequest(IRequest request)
+    }
+        public void AddService(Service s)
         {
-            throw new NotImplementedException();
+            this.services.Add(s);
+//с приемането на поръчката се начисляват разходите за материали, производство и инсталиране
+            Operation item = new Operation();
+            item.moment = s.RequestID;
+            item.operationValue = (s.ProductionCost + s.MaterialCost + s.InstallationCost);
+            this.credit.Add(item);
+         //   Print(this.credit);
         }
-
-        public void ImplementService(IService service)
-        {
-            throw new NotImplementedException();
-        }
+       
         public CompanyStatus Status
         {
             get
@@ -79,10 +113,93 @@ namespace WDproject.Models
                 return this.status;
             }
 
-             set
+            protected  set
             {
                 this.status = value;
             }
+        }
+
+        public void ResultOfTheDay()
+        {
+            uint t = this.Moment;
+//отчита завършването - един човек може да произведе и монтира един артикул на ден
+            var notReadyServices = this.services.FindAll(v => v.Unfinished > 0);
+            int personsDay = this.employeeCount;
+
+
+            foreach (var item in notReadyServices)
+            {
+                if (personsDay > 0)
+                {
+                    if (item.Unfinished > personsDay)
+                    {
+                        item.Unfinished = item.Unfinished - personsDay;
+                    }
+                    else if (item.Unfinished < personsDay)
+                    {
+                        personsDay = personsDay - item.Unfinished;
+                        item.Unfinished = 0;
+                    }
+                    else
+                    {
+                        personsDay = 0;
+                        item.Unfinished = 0;
+                    }
+                }
+            }
+ //кои поръчки имат item.Unfinished = 0 и ReportedIncome=0, тоест не са отчетени приходите
+            var notReportedServises = from item in this.services
+                                      where item.ReportedIncome == 0 && item.Unfinished == 0
+                                      select item;
+            foreach (var item in notReportedServises)
+            {
+                Operation opr = new Operation();
+                
+                double price = (item.MaterialCost + item.ProductionCost + item.InstallationCost) ;
+                item.ReportedIncome = price;
+
+                opr.moment = t;
+                opr.operationValue = price*(1+this.profitRate);
+                this.debit.Add(opr);
+               
+            }
+//отчита заплащането
+            Operation oprSalary = new Operation();
+            oprSalary.moment = this.Moment;
+            oprSalary.operationValue = this.employeeCount * Salary;
+            this.credit.Add(oprSalary);
+// пресмята капитала
+            double saldoDebit = SumOperation(this.debit);
+
+
+            double saldoCredit = SumOperation(this.credit);
+
+            Console.WriteLine("Debit: "+saldoDebit + " Credit:" + saldoCredit);
+            double result = this.Capital + saldoDebit - saldoCredit;
+            this.Capital = result;
+        }
+
+        public void Print(List<Operation> list)
+        {
+            Operation item = new Operation();
+            for (int i = 0; i < list.Count; i++)
+            {
+                item = list[i];
+                Console.WriteLine(item.moment + "  =>  "+item.operationValue);
+            }
+
+        }
+
+        public double SumOperation(List<Operation> list)
+        {
+            double sum = 0;
+            Operation item = new Operation();
+            for (int i = 0; i < list.Count; i++)
+            {
+                item = list[i];
+                sum += item.operationValue;
+            }
+            return sum;
         }
     }
 }
