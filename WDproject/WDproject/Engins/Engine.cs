@@ -42,7 +42,7 @@
                 company.AddService(s);
                 company.Moment = t;//set current moment /time/
                 company.ResultOfTheDay();
-                Console.WriteLine("Capital: "+company.Capital);
+                Console.WriteLine(string.Format("Capital: {0:0.00}",company.Capital));
             }
 
         }

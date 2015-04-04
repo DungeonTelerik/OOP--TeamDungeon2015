@@ -174,7 +174,7 @@ namespace WDproject.Models
 
             double saldoCredit = SumOperation(this.credit);
 
-            Console.WriteLine("Debit: "+saldoDebit + " Credit:" + saldoCredit);
+            Console.WriteLine(string.Format("Debit: {0:0.00}  Credit: {1:0.00} ", saldoDebit, saldoCredit));
             double result = this.Capital + saldoDebit - saldoCredit;
             this.Capital = result;
         }
