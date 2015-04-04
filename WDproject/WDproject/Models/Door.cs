@@ -16,7 +16,8 @@ namespace WDproject.Models
         private const int doorWidth = 80;
         private const int doorHeight = 200;        
         private sbyte numberOfWings = 1;
-
+        protected const double InstalationPrice = 12.0;
+        protected const double ProductionPrice = 10.0;
         //constructor
         public Door(sbyte numberOfWings)
         {
@@ -28,7 +29,7 @@ namespace WDproject.Models
             get { return this.numberOfWings; }
             set
             {
-                if (value > 0 && value < 2)
+                if (value < 0 && value > 2)
                 {
                     this.numberOfWings = value;
                 }
@@ -164,6 +165,10 @@ namespace WDproject.Models
         public double GetArea()
         {
             return this.numberOfWings * doorWidth * doorHeight;
+        }
+        public double GetPrice()
+        {
+            return numberOfWings*(doorWidth*doorHeight)/1000+InstalationPrice+ProductionPrice;
         }
     }
 }

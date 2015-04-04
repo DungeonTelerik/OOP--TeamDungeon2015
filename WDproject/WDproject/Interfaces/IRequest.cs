@@ -9,12 +9,9 @@ namespace WDproject.Interfaces
     public interface IRequest
     {
        //Задава им се стойност еднократно
-        int RequestID { get; set; }
-        uint Moment { get; set; }
-        IArticle article { get; set; }
-        int Quantity { get; set; }
-        bool IsAccepted { get; set; }
-
-
+        uint RequestID { get; } //сетва се еднократно с конструктора
+        uint Moment { get; set; }      
+        int Quantity { get;} //сетва се еднократно с конструктора
+        bool IsAccepted { get; set; } // при създаване се сетва на лъжа
     }
 }

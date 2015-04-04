@@ -11,15 +11,22 @@ namespace WDproject.Models
 
     class Window : IWindow
     {
+        protected const int WindowMinSize = 50;
+        protected const int WindowMaxSize = 300;
+        protected const double InstalationPrice = 120.0;
+        protected const double ProductionPrice = 100.0;
+        protected const int maxNumberOfWings=5;
+
         private int width;
         private int height;
-        
+        private int wingNumbers = 2;
+
 
         public Window(int width, int height)
         {
             this.Width = width;
             this.Height = height;
-            
+
         }
 
         public int Width
@@ -27,7 +34,11 @@ namespace WDproject.Models
             get { return this.width; }
             set
             {
-                IsInRange(value);
+                if (value < WindowMinSize || value > WindowMaxSize)
+                {
+                    throw new ArgumentOutOfRangeException("value have to be between " + WindowMinSize + " and " + WindowMaxSize + " [cm]");
+                }
+                this.width = value;
             }
         }
 
@@ -36,19 +47,24 @@ namespace WDproject.Models
             get { return this.height; }
             set
             {
-                IsInRange(value);
+                if (value < WindowMinSize || value > WindowMaxSize)
+                {
+                    throw new ArgumentOutOfRangeException("value have to be between " + WindowMinSize + " and " + WindowMaxSize + " [cm]");
+                }
+                this.height = value;
+                
             }
         }
 
         private void IsInRange(int value)
         {
-            if (value < 50 && value > 300)
+            if (value >= WindowMinSize && value <= WindowMaxSize)
             {
                 this.width = value;
             }
             else
             {
-                throw new ArgumentOutOfRangeException("value have to be between 50 and 300[cm]");
+                throw new ArgumentOutOfRangeException("value have to be between " + WindowMinSize + " and " + WindowMaxSize + " [cm]");
             }
         }
 
@@ -57,11 +73,16 @@ namespace WDproject.Models
         {
             get
             {
-                throw new NotImplementedException();
+                return this.wingNumbers;
             }
             set
             {
-                throw new NotImplementedException();
+
+                if (value < 0 || value > maxNumberOfWings)
+                {
+                    throw new ArgumentOutOfRangeException("Wing numbers must be between 1 and " + maxNumberOfWings);
+                }
+                this.wingNumbers = value;
             }
         }
 
@@ -77,7 +98,7 @@ namespace WDproject.Models
             }
         }
 
-      
+
 
         public Cross CrossType
         {
@@ -117,6 +138,24 @@ namespace WDproject.Models
         public double GetArea()
         {
             return this.width * this.height;
+        }
+
+        public static int MinSize()
+        {
+            return WindowMinSize;
+        }
+        public static int MaxSize()
+        {
+            return WindowMaxSize;
+        }
+        public override string ToString()
+        {
+            return string.Format("W x H = {0} x {1}", this.width, this.height);
+            //TODO possible extension with more window properties
+        }
+        public double GetPrice()
+        {
+            return InstalationPrice+ProductionPrice*this.wingNumbers+(this.width * this.height)/100;
         }
     }
 }
