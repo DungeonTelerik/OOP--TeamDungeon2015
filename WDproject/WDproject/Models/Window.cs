@@ -22,6 +22,7 @@ namespace WDproject.Models
         private int wingNumbers = 2;
         private double installationPrice;
         private double productionPrice;
+        private double materialPrice;
 
 
         public Window(int width, int height)
@@ -30,6 +31,7 @@ namespace WDproject.Models
             this.height = height;
             this.installationPrice = InstalationPriceConst;
             this.productionPrice = width * height * wingNumbers / 100;
+            this.materialPrice = this.productionPrice;
             
 
         }
@@ -140,6 +142,13 @@ namespace WDproject.Models
                 this.productionPrice = value;
             }
         }
+        public double MaterialPrice
+        {
+            get
+            {
+                return this.materialPrice;
+            }
+        }
         public double GetArea()
         {
             return this.width * this.height;
@@ -160,7 +169,7 @@ namespace WDproject.Models
         }
         public double GetPrice()
         {
-            return this.installationPrice+this.productionPrice;
+            return this.installationPrice+this.productionPrice+this.materialPrice;
         }
     }
 }

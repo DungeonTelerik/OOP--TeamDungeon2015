@@ -14,6 +14,7 @@ namespace WDproject.Interfaces
         Cross CrossType { get; set; }
         double InstallationPrice { get; set; }
         double ProductionPrice { get; set; }
+        double MaterialPrice { get; }
         double GetPrice();
     }
 }

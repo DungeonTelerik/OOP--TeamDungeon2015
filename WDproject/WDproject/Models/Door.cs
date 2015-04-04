@@ -20,12 +20,15 @@ namespace WDproject.Models
         protected const double ProductionPriceCost = 160.0;
         protected double productionPrice;
         protected double installationPrice;
+        protected double materialPrice;
         //constructor
         public Door(sbyte numberOfWings)
         {
             this.NumberOfWings = numberOfWings;
             this.productionPrice = ProductionPriceCost * numberOfWings;
             this.installationPrice = InstalationPriceCost;
+            this.materialPrice = this.productionPrice;
+            
         }
 
         public sbyte NumberOfWings
@@ -81,29 +84,7 @@ namespace WDproject.Models
             }
         }
 
-        //public int ProductionPrice
-        //{
-        //    get
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //    set
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
 
-        //public int InstallationPrice
-        //{
-        //    get
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //    set
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
 
         string IDoor.LockingSystem
         {
@@ -166,13 +147,20 @@ namespace WDproject.Models
                 this.productionPrice = value;
             }
         }
+        public double MaterialPrice
+        {
+            get
+            {
+                return this.materialPrice;
+            }
+        }
         public double GetArea()
         {
             return this.numberOfWings * doorWidth * doorHeight;
         }
         public double GetPrice()
         {
-            return this.installationPrice+this.productionPrice;
+            return this.installationPrice+this.productionPrice+ this.materialPrice;
         }
     }
 }
