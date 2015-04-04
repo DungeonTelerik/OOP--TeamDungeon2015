@@ -26,6 +26,9 @@
             Console.SetCursorPosition(10, 0);
             Console.Write("Enter Company Name: ");
             Company company = new Company(Console.ReadLine());
+            company.Capital = 10000.00;
+            company.EmployeeCount = 3;
+
             RequestFactory requestedFactory = new RequestFactory();
         //    ConsoleKeyInfo cki;
             uint t = 0;
@@ -35,10 +38,8 @@
                 t++;
                 WindowRequest wr = requestedFactory.CreateRandomWindowRequest(t);
                 Console.WriteLine(wr.ToString());
-                // Start a console read operation. Do not display the input.
-
-
-                // Announce the name of the key that was pressed .
+             Service s =requestedFactory.CreateService(wr);
+             company.AddService(s);
 
             }
 
@@ -47,7 +48,8 @@
         private static void Pulse(uint t)
         {
             Thread.Sleep(Miliseconds);
-            Console.WriteLine(t.ToString("0000"));
+            Console.Write(t.ToString("0000"));
+            Console.Write(" => ");
         }
 
 

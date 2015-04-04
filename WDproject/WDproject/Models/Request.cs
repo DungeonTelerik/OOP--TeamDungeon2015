@@ -57,6 +57,14 @@ namespace WDproject.Models
                 this.isAccepted = value;
             }
         }
+        public virtual double MaterialCost() { return 0; }
+
+        public virtual double ProductionCost() { return 0; }
+
+        public virtual double InstallationCost() { return 0; }
+        
+
+
         public override string ToString()
         {
             return string.Format("ID:{0}, Moment:{1}, Qty:{2}", this.requestID, this.moment, this.quantity);

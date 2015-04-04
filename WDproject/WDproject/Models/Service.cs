@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WDproject.Models
 {
-    class Service : IService
+    public class Service : IService
     {
         protected uint requestID;
         protected uint momentFromBeginning;

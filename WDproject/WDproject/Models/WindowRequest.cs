@@ -12,14 +12,28 @@ namespace WDproject.Models
         protected Window window;
 
         public WindowRequest(uint moment, Window window)
-            :base(moment)
+            : base(moment)
         {
-           this.window = window;
+            this.window = window;
+        }
+
+        public override double MaterialCost()
+        {
+            return window.MaterialPrice;
+        }
+        public override double ProductionCost()
+        {
+
+            return window.ProductionPrice;
+        }
+        public override  double InstallationCost()
+        {
+            return window.InstallationPrice;
         }
         public override string ToString()
         {
-            return string.Format("Window-{0}, Request-{1}, Price:{2}", this.window.ToString(), base.ToString(), this.window.GetPrice()*this.quantity);
+            return string.Format("Window-{0}, Request-{1}, Price:{2}", this.window.ToString(), base.ToString(), this.window.GetPrice() * this.quantity);
         }
-       
+
     }
 }

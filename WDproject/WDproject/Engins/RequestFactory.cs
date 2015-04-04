@@ -15,19 +15,8 @@ namespace WDproject.Engins
 
     class RequestFactory
     {
-        // опашка на чакащите поръчки
-        // опашка на приетите поръчки
-        // списък на отказаните поръчки
-        public WindowRequest CreateRandomWindowRequest(uint moment)
-        {
-            Window window = NewRandomWindow();
-            Console.WriteLine(window.GetPrice().ToString());
-            WindowRequest wr=new WindowRequest(moment, window);
-            Console.WriteLine("IS accepted "+wr.IsAccepted);
-            Console.WriteLine("RequestID: " + wr.RequestID); 
-            return wr;
-        }
 
+//window
         private Window NewRandomWindow()
         {
             Random r = new Random();
@@ -37,6 +26,29 @@ namespace WDproject.Engins
             int windowHeight = r.Next(WindowMinSize + 1, WindowMaxSize - 1);
             return new Window(windowWidth, windowHeight);
         }
+//request
+        public WindowRequest CreateRandomWindowRequest(uint moment)
+        {
+            Window window = NewRandomWindow();
+         //   Console.WriteLine(window.GetPrice().ToString());
+            WindowRequest wr=new WindowRequest(moment, window);
+            //Console.WriteLine("IS accepted "+wr.IsAccepted);
+            //Console.WriteLine("RequestID: " + wr.RequestID); 
+            return wr;
+        }
+//service
+        public Service CreateService(WindowRequest wr)
+        {
+            double mC = wr.MaterialCost();
+            double pC = wr.ProductionCost();
+            double iC = wr.InstallationCost();
+            mC = mC * wr.Quantity;
+            pC = pC * wr.Quantity;
+            iC = iC * wr.Quantity;
+            Service s = new Service(wr.RequestID, wr.Quantity, mC, iC, pC);
+            return s;
+        }
+        
 
        
 
