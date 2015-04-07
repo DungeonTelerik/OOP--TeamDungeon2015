@@ -55,7 +55,7 @@
     <Compile Include="Models\CompanyStatus.cs" />
     <Compile Include="Models\Cross.cs" />
     <Compile Include="Models\Door.cs" />
-    <Compile Include="Models\IService.cs" />
+    <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Models\Operation.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\Service.cs" />
