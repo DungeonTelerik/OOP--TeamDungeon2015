@@ -43,18 +43,24 @@
   <ItemGroup>
     <Compile Include="Engins\Engine.cs" />
     <Compile Include="Engins\RequestFactory.cs" />
+    <Compile Include="Interfaces\CompanyStatus.cs" />
     <Compile Include="Interfaces\IArticle.cs" />
     <Compile Include="Interfaces\ICompany.cs" />
     <Compile Include="Interfaces\IDoor.cs" />
     <Compile Include="Interfaces\IRequest.cs" />
-    <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Interfaces\IWindow.cs" />
     <Compile Include="Interfaces\IWorker.cs" />
     <Compile Include="MainWDproject.cs" />
     <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\CompanyStatus.cs" />
     <Compile Include="Models\Cross.cs" />
     <Compile Include="Models\Door.cs" />
+    <Compile Include="Models\IService.cs" />
+    <Compile Include="Models\Operation.cs" />
+    <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\Service.cs" />
     <Compile Include="Models\Window.cs" />
+    <Compile Include="Models\WindowRequest.cs" />
     <Compile Include="Models\Worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

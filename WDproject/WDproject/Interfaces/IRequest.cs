@@ -12,7 +12,7 @@ namespace WDproject.Interfaces
         uint RequestID { get; } //сетва се еднократно с конструктора
         uint Moment { get; set; }      
         int Quantity { get;} //сетва се еднократно с конструктора
-        bool IsAccepted { get; set; } // при създаване се сетва на лъжа
+      //  bool IsAccepted { get; set; } // при създаване се сетва на лъжа
         double MaterialCost(); //платени разходи за материали
         double ProductionCost(); // платени разходи за производство
         double InstallationCost(); // платени разходи за инсталиране

@@ -121,32 +121,8 @@ namespace WDproject.Models
 
         public void ResultOfTheDay()
         {
-            uint t = this.Moment;
-//отчита завършването - един човек може да произведе и монтира един артикул на ден
-            var notReadyServices = this.services.FindAll(v => v.Unfinished > 0);
-            int personsDay = this.employeeCount;
-
-
-            foreach (var item in notReadyServices)
-            {
-                if (personsDay > 0)
-                {
-                    if (item.Unfinished > personsDay)
-                    {
-                        item.Unfinished = item.Unfinished - personsDay;
-                    }
-                    else if (item.Unfinished < personsDay)
-                    {
-                        personsDay = personsDay - item.Unfinished;
-                        item.Unfinished = 0;
-                    }
-                    else
-                    {
-                        personsDay = 0;
-                        item.Unfinished = 0;
-                    }
-                }
-            }
+            uint t = this.Moment; 
+            FinishCheck();//отчита изпълнението
  //кои поръчки имат item.Unfinished = 0 и ReportedIncome=0, тоест не са отчетени приходите
             var notReportedServises = from item in this.services
                                       where item.ReportedIncome == 0 && item.Unfinished == 0
@@ -174,9 +150,41 @@ namespace WDproject.Models
 
             double saldoCredit = SumOperation(this.credit);
 
-            Console.WriteLine(string.Format("Debit: {0:0.00}  Credit: {1:0.00} ", saldoDebit, saldoCredit));
+          //  Console.WriteLine(string.Format("Saldo Debit: {0:0.00}  Saldo Credit: {1:0.00} ", saldoDebit, saldoCredit));
             double result = this.Capital + saldoDebit - saldoCredit;
             this.Capital = result;
+        }
+
+        private void FinishCheck()
+        {
+            uint t = this.Moment;
+            //отчита завършването - един човек може да произведе и монтира един артикул на ден
+            var notReadyServices = this.services.FindAll(v => v.Unfinished > 0);
+            int personsDay = this.employeeCount;
+
+
+            foreach (var item in notReadyServices)
+            {
+                if (personsDay > 0)
+                {
+                    if (item.Unfinished > personsDay)
+                    {
+                        item.Unfinished = item.Unfinished - personsDay;
+                        personsDay = 0;
+                    }
+                    else if (item.Unfinished < personsDay)
+                    {
+                        personsDay = personsDay - item.Unfinished;
+                        item.Unfinished = 0;
+                    }
+                    else
+                    {
+                        personsDay = 0;
+                        item.Unfinished = 0;
+                    }
+                }
+            }
+           
         }
 
         public void Print(List<Operation> list)
@@ -200,6 +208,11 @@ namespace WDproject.Models
                 sum += item.operationValue;
             }
             return sum;
+        }
+        public override string ToString()
+        {
+            return string.Format("Saldo Debit: {0:0.00}  Saldo Credit: {1:0.00}  Capital: {2:0.00} ",
+                SumOperation(this.debit), SumOperation(this.credit), this.Capital);
         }
     }
 }

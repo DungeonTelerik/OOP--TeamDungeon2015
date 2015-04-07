@@ -1,52 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Interface Name="WDproject.Interfaces.IArticle">
+  <Class Name="WDproject.Models.Door">
+    <Position X="14.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACIAAABCABAEAgQEAAABAQAAQQAgAgEAAAAEQAAAAI=</HashCode>
+      <FileName>Models\Door.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WDproject.Models.Window">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgCAABAAhAAAAIwEUAAABEQAAQQAAAgEAgAAEAAAABg=</HashCode>
+      <FileName>Models\Window.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WDproject.Models.Company" Collapsed="true">
+    <Position X="9" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAACIEAAACAAAFAAAQAQRACAAEAAgAAAAACKAEAAg=</HashCode>
+      <FileName>Models\Company.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WDproject.Models.Request">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwAAAAMABAAAAAUEAAAAAAAAAIAAAACAAAABkAAAAAA=</HashCode>
+      <FileName>Models\Request.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WDproject.Models.WindowRequest" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEEAAAAAAAAAIAAAAAIAAAAEAAAAAA=</HashCode>
+      <FileName>Models\WindowRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WDproject.Models.Service">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAUAAEABAABAAIAAAACAAgASkgAAEhA=</HashCode>
+      <FileName>Models\Service.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="WDproject.Interfaces.IArticle" Collapsed="true">
     <Position X="1.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAQAAAAIAAAgAAQAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAQAAQQAAAgEAAAAEAAAAAA=</HashCode>
       <FileName>Interfaces\IArticle.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="WDproject.Interfaces.IDoor">
+  <Interface Name="WDproject.Interfaces.IDoor" Collapsed="true">
     <Position X="0.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IDoor.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="WDproject.Interfaces.IWindow">
+  <Interface Name="WDproject.Interfaces.IWindow" Collapsed="true">
     <Position X="2.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IWindow.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="WDproject.Interfaces.IWorker">
+  <Interface Name="WDproject.Interfaces.IWorker" Collapsed="true">
     <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>Interfaces\IWorker.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="WDproject.Interfaces.IService">
-    <Position X="6.75" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>gABAACAAAAAAAAAEBAAAAIABAABQAACECAAAAAIAAAA=</HashCode>
-      <FileName>Interfaces\IService.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Interface Name="WDproject.Interfaces.IRequest">
     <Position X="6.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAEAAAAAAAQAAAAAAAAAAAAAABAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAAUAAAAAAAAAAIAAAAAAAAAAkAAAAAA=</HashCode>
       <FileName>Interfaces\IRequest.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WDproject.Interfaces.ICompany">
-    <Position X="4.5" Y="2.75" Width="1.5" />
+    <Position X="4.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAAACAAEAAAAAAAAAAAAABAgAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\ICompany.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WDproject.Models.IService">
+    <Position X="6.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAUAAAAAAABAAIAAAAAAAAAAkgAAAgA=</HashCode>
+      <FileName>Models\IService.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
