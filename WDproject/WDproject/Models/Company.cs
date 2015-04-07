@@ -123,7 +123,7 @@ namespace WDproject.Models
         {
             uint t = this.Moment; 
             FinishCheck();//отчита изпълнението
- //кои поръчки имат item.Unfinished = 0 и ReportedIncome=0, тоест не са отчетени приходите
+
             var notReportedServises = from item in this.services
                                       where item.ReportedIncome == 0 && item.Unfinished == 0
                                       select item;

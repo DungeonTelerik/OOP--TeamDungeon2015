@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="WDproject.Models.Door">
-    <Position X="14.75" Y="1" Width="1.5" />
+  <Class Name="WDproject.Models.Door" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACIAAABCABAEAgQEAAABAQAAQQAgAgEAAAAEQAAAAI=</HashCode>
       <FileName>Models\Door.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="WDproject.Models.Window">
+  <Class Name="WDproject.Models.Window" Collapsed="true">
     <Position X="13" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CgCAABAAhAAAAIwEUAAABEQAAQQAAAgEAgAAEAAAABg=</HashCode>
@@ -24,7 +24,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="WDproject.Models.Request">
+  <Class Name="WDproject.Models.Request" Collapsed="true">
     <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AwAAAAMABAAAAAUEAAAAAAAAAIAAAACAAAABkAAAAAA=</HashCode>
@@ -32,14 +32,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="WDproject.Models.WindowRequest" Collapsed="true">
-    <Position X="11.25" Y="0.5" Width="1.5" />
+  <Class Name="WDproject.Models.WindowRequest">
+    <Position X="9" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEEAAAAAAAAAIAAAAAIAAAAEAAAAAA=</HashCode>
       <FileName>Models\WindowRequest.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WDproject.Models.Service">
+  <Class Name="WDproject.Models.Service" Collapsed="true">
     <Position X="4.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAUAAEABAABAAIAAAACAAgASkgAAEhA=</HashCode>
@@ -89,11 +89,11 @@
       <FileName>Interfaces\ICompany.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="WDproject.Models.IService">
-    <Position X="6.75" Y="3.25" Width="1.5" />
+  <Interface Name="WDproject.Models.IService" Collapsed="true">
+    <Position X="6.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAUAAAAAAABAAIAAAAAAAAAAkgAAAgA=</HashCode>
-      <FileName>Models\IService.cs</FileName>
+      <FileName>Interfaces\IService.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
