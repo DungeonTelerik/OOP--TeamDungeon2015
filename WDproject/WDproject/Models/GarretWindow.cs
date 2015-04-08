@@ -39,6 +39,10 @@ namespace WDproject.Models
             return this.ProductionPrice + this.InstallationPrice + base.MaterialPrice;
         }
 
+        public override string ToString()
+        {
+            return string.Format("GatterWindow has width {0} cm, height {1} cm and widthOfSkylight {2} cm.", this.Width, this.Height, this.WidthOfSkylight);
+        }
 
 
     }

@@ -84,7 +84,6 @@ namespace WDproject.Models
             }
             set
             {
-
                 if (value < 0 || value > MaxNumberOfWings)
                 {
                     throw new ArgumentOutOfRangeException("Wing numbers must be between 1 and " + MaxNumberOfWings);
@@ -93,31 +92,9 @@ namespace WDproject.Models
             }
         }
 
-        public string Name
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string Name { get; set; }
 
-
-
-        public Cross CrossType
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public Cross CrossType { get; set; }
 
         public double ProductionPrice
         {
@@ -155,7 +132,7 @@ namespace WDproject.Models
         }
         public double GetArea()
         {
-            return this.width * this.height;
+            return this.Width * this.Height;
         }
 
         public static int MinSize()
@@ -168,7 +145,7 @@ namespace WDproject.Models
         }
         public override string ToString()
         {
-            return string.Format("W x H = {0} x {1}", this.width, this.height);
+            return string.Format("W x H = {0} x {1}", this.Width, this.Height);
             //TODO possible extension with more window properties
         }
         public virtual double GetPrice()

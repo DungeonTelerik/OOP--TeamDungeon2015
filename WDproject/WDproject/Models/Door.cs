@@ -10,24 +10,24 @@ namespace WDproject.Models
 
     using WDproject.Interfaces;
 
-    class Door : IDoor
+    class Door : IDoor, IArticle
     {
         //fields
-        private const int doorWidth = 80;
-        private const int doorHeight = 200;        
+        private const int DoorWidth = 80;
+        private const int DoorHeight = 200;        
         private sbyte numberOfWings = 1;
         protected const double InstalationPriceCost = 120.0;
         protected const double ProductionPriceCost = 160.0;
         protected double productionPrice;
-        protected double installationPrice;
+        protected double installationPrice = InstalationPriceCost;
         protected double materialPrice;
         //constructor
         public Door(sbyte numberOfWings)
         {
             this.NumberOfWings = numberOfWings;
-            this.productionPrice = ProductionPriceCost * numberOfWings;
-            this.installationPrice = InstalationPriceCost;
-            this.materialPrice = this.productionPrice;
+            this.ProductionPrice = productionPrice;
+            this.InstallationPrice = installationPrice;
+            this.MaterialPrice = materialPrice ;
             
         }
 
@@ -47,92 +47,21 @@ namespace WDproject.Models
             }
         }
 
-        public string LockingSystem
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string LockingSystem { get; set; }
 
-        public string Name
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string Name { get; set; }
 
-
-        public Cross CrossType
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-
-
-        string IDoor.LockingSystem
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        string IArticle.Name
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-       
-
-        Cross IArticle.CrossType
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public Cross CrossType { get; set; }
 
         public double ProductionPrice
         {
             get
             {
-                return this.installationPrice;
+                return ProductionPriceCost * numberOfWings;
             }
             set
             {
-                this.installationPrice = value; ;
+                this.productionPrice = value; ;
             }
         }
 
@@ -140,11 +69,11 @@ namespace WDproject.Models
         {
             get
             {
-                return this.productionPrice;
+                return this.installationPrice;
             }
             set
             {
-                this.productionPrice = value;
+                this.installationPrice = value;
             }
         }
         public double MaterialPrice
@@ -153,14 +82,15 @@ namespace WDproject.Models
             {
                 return this.materialPrice;
             }
+            protected set { this.materialPrice = value; }
         }
         public double GetArea()
         {
-            return this.numberOfWings * doorWidth * doorHeight;
+            return this.NumberOfWings * DoorWidth * DoorHeight;
         }
         public double GetPrice()
         {
-            return this.installationPrice+this.productionPrice+ this.materialPrice;
+            return this.InstallationPrice+this.ProductionPrice+ this.MaterialPrice;
         }
     }
 }
