@@ -58,6 +58,7 @@
     <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Interfaces\IPanel.cs" />
     <Compile Include="Interfaces\IShelter.cs" />
+    <Compile Include="Models\GarretWindow.cs" />
     <Compile Include="Models\Operation.cs" />
     <Compile Include="Models\Panel.cs" />
     <Compile Include="Models\Request.cs" />

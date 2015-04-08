@@ -9,13 +9,13 @@ namespace WDproject.Models
 
     using WDproject.Interfaces;
 
-    class Window : IWindow
+    public class Window : IWindow
     {
         protected const int WindowMinSize = 50;
         protected const int WindowMaxSize = 300;
         protected const double InstalationPriceConst = 120.0;
         protected const double ProductionPriceConst = 100.0;
-        protected const int maxNumberOfWings=5;
+        protected const int MaxNumberOfWings = 5;
 
         private int width;
         private int height;
@@ -27,12 +27,12 @@ namespace WDproject.Models
 
         public Window(int width, int height)
         {
-            this.width = width;
-            this.height = height;
-            this.installationPrice = InstalationPriceConst;
-            this.productionPrice = width * height * wingNumbers / 100;
-            this.materialPrice = this.productionPrice;
-            
+            this.Width = width;
+            this.Height = height;
+            this.InstallationPrice = InstalationPriceConst;
+            this.ProductionPrice = productionPrice;
+            this.MaterialPrice = materialPrice;
+
 
         }
 
@@ -59,7 +59,7 @@ namespace WDproject.Models
                     throw new ArgumentOutOfRangeException("value have to be between " + WindowMinSize + " and " + WindowMaxSize + " [cm]");
                 }
                 this.height = value;
-                
+
             }
         }
 
@@ -85,9 +85,9 @@ namespace WDproject.Models
             set
             {
 
-                if (value < 0 || value > maxNumberOfWings)
+                if (value < 0 || value > MaxNumberOfWings)
                 {
-                    throw new ArgumentOutOfRangeException("Wing numbers must be between 1 and " + maxNumberOfWings);
+                    throw new ArgumentOutOfRangeException("Wing numbers must be between 1 and " + MaxNumberOfWings);
                 }
                 this.wingNumbers = value;
             }
@@ -123,11 +123,11 @@ namespace WDproject.Models
         {
             get
             {
-                return this.installationPrice;
+                return this.Width * this.Height * this.WingNumbers / 100;
             }
             set
             {
-                this.installationPrice = value; ;
+                this.productionPrice = value; ;
             }
         }
 
@@ -135,11 +135,11 @@ namespace WDproject.Models
         {
             get
             {
-                return this.productionPrice;
+                return this.installationPrice;
             }
             set
             {
-                this.productionPrice = value;
+                this.installationPrice = value;
             }
         }
         public double MaterialPrice
@@ -147,6 +147,10 @@ namespace WDproject.Models
             get
             {
                 return this.materialPrice;
+            }
+            private set
+            {
+                this.materialPrice = value;
             }
         }
         public double GetArea()
@@ -167,9 +171,9 @@ namespace WDproject.Models
             return string.Format("W x H = {0} x {1}", this.width, this.height);
             //TODO possible extension with more window properties
         }
-        public double GetPrice()
+        public virtual double GetPrice()
         {
-            return this.installationPrice+this.productionPrice+this.materialPrice;
+            return this.InstallationPrice + this.ProductionPrice + this.MaterialPrice;
         }
     }
 }

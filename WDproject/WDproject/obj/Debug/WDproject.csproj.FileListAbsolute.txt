@@ -25,3 +25,9 @@ C:\Users\Evgenia\Documents\GitHub\OOP--TeamDungeon2015\OOP--TeamDungeon2015\WDpr
 D:\VS\C#OOPN\TeamWork\WDproject\WDproject\WDproject\bin\Debug\WDproject.exe.config
 D:\VS\C#OOPN\TeamWork\WDproject\WDproject\WDproject\obj\Debug\WDproject.exe
 D:\VS\C#OOPN\TeamWork\WDproject\WDproject\WDproject\obj\Debug\WDproject.pdb
+D:\VS\C#OOPN\TeamWork\OOP--TeamDungeon2015\OOP--TeamDungeon2015\WDproject\WDproject\bin\Debug\WDproject.exe.config
+D:\VS\C#OOPN\TeamWork\OOP--TeamDungeon2015\OOP--TeamDungeon2015\WDproject\WDproject\obj\Debug\WDproject.exe
+D:\VS\C#OOPN\TeamWork\OOP--TeamDungeon2015\OOP--TeamDungeon2015\WDproject\WDproject\obj\Debug\WDproject.pdb
+D:\VS\C#OOPN\TeamWork\OOP--TeamDungeon2015\OOP--TeamDungeon2015\WDproject\WDproject\bin\Debug\WDproject.exe
+D:\VS\C#OOPN\TeamWork\OOP--TeamDungeon2015\OOP--TeamDungeon2015\WDproject\WDproject\bin\Debug\WDproject.pdb
+D:\VS\C#OOPN\TeamWork\OOP--TeamDungeon2015\OOP--TeamDungeon2015\WDproject\WDproject\obj\Debug\WDproject.csprojResolveAssemblyReference.cache
