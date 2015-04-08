@@ -57,7 +57,7 @@ namespace WDproject.Models
         {
             get
             {
-                return ProductionPriceCost * numberOfWings;
+                return ProductionPriceCost * this.NumberOfWings;
             }
             set
             {
