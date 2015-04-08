@@ -32,7 +32,7 @@
             company.EmployeeCount = 3;
             Console.WriteLine(string.Format("Begin With Capital: {0}, Employees:{1}, Profit rate:{2}", company.Capital, company.EmployeeCount, company.ProfitRate));
             RequestFactory requestedFactory = new RequestFactory();
-            string clearRowString = new string(' ', 80);
+         //   string clearRowString = new string(' ', 80);
             //    ConsoleKeyInfo cki;
             uint t = 0;
             while (true)
@@ -45,9 +45,9 @@
                 company.AddService(s);
                 company.Moment = t;//set current moment /time/
                 company.ResultOfTheDay();
-                Console.SetCursorPosition(0, 10);
-                Console.WriteLine(clearRowString);
-                Console.SetCursorPosition(0, 10);
+                //Console.SetCursorPosition(0, 10);
+                //Console.WriteLine(clearRowString);
+                //Console.SetCursorPosition(0, 10);
                 Console.WriteLine(company.ToString());
             }
 
@@ -56,9 +56,9 @@
         private static void Pulse(uint t)
         {
             Thread.Sleep(Miliseconds);
-            Console.SetCursorPosition(0, 7);
-            string clearRowString = new string(' ', 80);
-            Console.SetCursorPosition(0, 7);
+            //Console.SetCursorPosition(0, 7);
+            //string clearRowString = new string(' ', 80);
+         //   Console.SetCursorPosition(0, 7);
             Console.Write(t.ToString("0000"));
             Console.Write(" => ");
         }
